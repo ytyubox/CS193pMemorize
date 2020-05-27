@@ -15,6 +15,7 @@ struct ContentView: View {
         HStack {
             ForEach(viewModel.cards.shuffled()) { card in
                 CardView(card: card)
+                    .aspectRatio(2/3, contentMode: .fit)
                     .onTapGesture {
                         self.viewModel.choose(card: card)
                 }
