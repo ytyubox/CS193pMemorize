@@ -13,8 +13,10 @@ class EmojiMemoryGame {
     typealias Game = MermoryGame<String>
     
     private static func makeGame() -> Game {
-        let cards = Array<MermoryGame<String>.Card>()
-        return MermoryGame(cards: cards)
+        let emojis = ["🦑","👺","🍺"]
+        return MermoryGame(numberOfPairsOfCards: emojis.count) { (index) in
+            return emojis[index]
+        }
     }
     private var model: Game = EmojiMemoryGame.makeGame()
     
