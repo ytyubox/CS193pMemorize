@@ -14,7 +14,7 @@ class EmojiMemoryGame {
     
     private static func makeGame() -> Game {
         let emojis = ["🦑","👺","🍺","😈","🤡"]
-        let randomNumbor = (3...5).randomElement()!
+        let randomNumbor = 4//(3...5).randomElement()!
         return MermoryGame(numberOfPairsOfCards: randomNumbor) { (index) in
             return emojis[index]
         }
