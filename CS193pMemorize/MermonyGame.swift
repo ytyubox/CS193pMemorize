@@ -9,6 +9,15 @@
 import Foundation
 
 struct MermoryGame<CardContent> {
+    init(numberOfPairsOfCards: Int, cardContentFactory: (Int)->CardContent) {
+        cards = Array<Card>()
+        for pairIndex in 0..<numberOfPairsOfCards {
+            let content = cardContentFactory(pairIndex)
+            cards.append(Card(id: pairIndex*2, content: content))
+            cards.append(Card(id: pairIndex*2+1, content: content))
+        }
+    }
+    
     
     var cards: Array<Card>
     
@@ -16,9 +25,10 @@ struct MermoryGame<CardContent> {
         print(#file, #line, "card chosen:", card)
     }
     
-    struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+    struct Card:Identifiable {
+        var id: Int
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
         var content: CardContent
     }
 }
