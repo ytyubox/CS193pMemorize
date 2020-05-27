@@ -7,11 +7,11 @@
 code. Do not copy/paste from anywhere.
 - [x] Currently the cards appear in a predictable order (the matches are always side-by-side,
 making the game very easy). Shuffle the cards.
-- [ ] Our cards are currently arranged in a single row (we’ll fix that next week). That’s
+- [x] Our cards are currently arranged in a single row (we’ll fix that next week). That’s
 making our cards really tall and skinny (especially in portrait) which doesn’t look very
 good. Force each card to have a width to height ratio of 2:3 (this will result in empty
 space above and/or below your cards, which is fine).
-- [ ] Have your game start up with a random number of pairs of cards between 2 pairs
+- [x] Have your game start up with a random number of pairs of cards between 2 pairs
 and 5 pairs.
 - [ ] When your game randomly shows 5 pairs, the font we are using for the emoji will be
 too large (in portrait) and will start to get clipped. Have the font adjust in the 5 pair

@@ -13,8 +13,9 @@ class EmojiMemoryGame {
     typealias Game = MermoryGame<String>
     
     private static func makeGame() -> Game {
-        let emojis = ["🦑","👺","🍺"]
-        return MermoryGame(numberOfPairsOfCards: emojis.count) { (index) in
+        let emojis = ["🦑","👺","🍺","😈","🤡"]
+        let randomNumbor = (3...5).randomElement()!
+        return MermoryGame(numberOfPairsOfCards: randomNumbor) { (index) in
             return emojis[index]
         }
     }
