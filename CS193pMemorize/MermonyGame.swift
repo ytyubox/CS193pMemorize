@@ -13,7 +13,7 @@ struct MermoryGame<CardContent> {
     var cards: Array<Card>
     
     func choose(card: Card) {
-        print(#file,#line, "card chosen:",card)
+        print(#file, #line, "card chosen:", card)
     }
     
     struct Card {
