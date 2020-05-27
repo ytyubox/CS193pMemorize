@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGame {
+class EmojiMemoryGame:ObservableObject {
     
     typealias Game = MermoryGame<String>
     
@@ -22,7 +22,7 @@ class EmojiMemoryGame {
             return emojis[index]
         }
     }
-    private var model: Game = EmojiMemoryGame.makeGame()
+    @Published private var model: Game = EmojiMemoryGame.makeGame()
     
     // MARK: - Access to the Model
     

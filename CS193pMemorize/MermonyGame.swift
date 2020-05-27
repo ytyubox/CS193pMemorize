@@ -16,6 +16,7 @@ struct MermoryGame<CardContent> {
             cards.append(Card(id: pairIndex*2, content: content))
             cards.append(Card(id: pairIndex*2+1, content: content))
         }
+        cards.shuffle()
     }
     
     
@@ -33,7 +34,7 @@ struct MermoryGame<CardContent> {
                 return index
             }
         }
-        return 0
+        return 0 //TODO: bogus!
     }
     struct Card:Identifiable {
         var id: Int
