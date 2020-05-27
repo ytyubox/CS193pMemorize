@@ -23,13 +23,6 @@ on your part (that’s part of the power of SwiftUI), but be sure to experiment 
 running on different simulators in Xcode to be sure.
 
 Extra Credit
-We try to make Extra Credit be opportunities to expand on what you’ve learned this
-week. Attempting at least some of these each week is highly recommended to get the
-most out of this course. How much Extra Credit you earn depends on the scope of the
-item in question.
-If you choose to tackle an Extra Credit item, mark it in your code with comments so your
-grader can find it.
-This week there’s only one Extra Credit item, sorry! If we think of some more this week,
-we’ll post them on the class forums.
-1. Have the emoji on your cards be randomly chosen from a larger set of emoji (at least
+
+- [x] Have the emoji on your cards be randomly chosen from a larger set of emoji (at least
 a dozen). In other words, don’t always use the same five emoji in every game.
