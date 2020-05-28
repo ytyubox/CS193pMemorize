@@ -53,6 +53,7 @@ struct CardView: GeometryView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame(gameTheme: .halloween
+))
     }
 }
