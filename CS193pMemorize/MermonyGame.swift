@@ -25,28 +25,16 @@ struct MermoryGame<CardContent:Equatable> {
     var indexOfOneAndOnlyFaceUpCard:Int? {
         get
         {
-            var faceupCardIndices = [Int]()
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    faceupCardIndices.append(index)
-                }
+            let faceupCardIndices = cards.indices.filter{
+                self.cards[$0].isFaceUp
             }
-            return
-                faceupCardIndices.count == 1
-                    ? faceupCardIndices.first
-                    : nil
+            return faceupCardIndices.only
         }
         set
         {
             for index in cards.indices {
-                if index == newValue {
-                    cards[index].isFaceUp = true
-                } else {
-                    cards[index].isFaceUp = false
-                }
-                
+                cards[index].isFaceUp = index == newValue
             }
-            dump(cards)
         }
     }
     
