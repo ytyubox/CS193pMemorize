@@ -22,17 +22,54 @@ struct GameTheme {
 
 extension GameTheme {
     
-   static  var allThemes:[GameTheme]
+    static  var allThemes:[GameTheme]
     {
         [
-            .halloween
+            .halloween,
+            .animal,
+            .sign,
+            .food,
+            .balls,
+            .transports,
         ]
     }
     
     static let halloween = GameTheme(
         themeColor: .orange,
         cardContents: [
-        "🦑","👺","🍺","😈","🤡","👽",
-        "💩","🦋","🐡","🌵","☀️","💧",
-        ])
+            "🦑","👺","🍺","😈","🤡","👽",
+            "💩","🦋","🐡","🌵","☀️","💧",
+    ])
+    
+    static let animal = GameTheme(
+        themeColor: .green,
+        cardContents: [
+            "🐭","🐮","🐯","🐰","🐲","🐍",
+            "🐴","🐑","🐵","🐔","🐕","🐷",
+    ])
+    static let sign = GameTheme(
+        themeColor: .blue,
+        cardContents: [
+            "🆎","🚸","✅","🅿️","🟤","🟪",
+            "♣️","♥️","🔱","💮","🧡","💝",
+    ])
+    static let food = GameTheme(
+        themeColor: .red,
+        cardContents: [
+            "🍎","🍊","🍋","🍉","🍓","🍑",
+            "🥥","🍆","🥑","🥕","🧄","🌶",
+    ])
+    
+    static let balls = GameTheme(
+        themeColor: .primary,
+        cardContents: [
+            "⚽️","🏀","🏈","⚾️","🥎","🏉",
+            "🥏","🎱","🪀","🏓","⛳️","🥍",
+    ])
+    static let transports = GameTheme(
+        themeColor: .yellow,
+        cardContents: [
+            "🚗","🚕","🚙","🚌","🏎","🚎",
+            "🚓","🚑","🚒","🚐","🚚","🚛",
+    ])
 }
