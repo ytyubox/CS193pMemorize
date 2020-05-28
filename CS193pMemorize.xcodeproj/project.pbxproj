@@ -17,6 +17,7 @@
 		A73068FD247E2E4D002C2E88 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73068FC247E2E4D002C2E88 /* EmojiMemoryGame.swift */; };
 		A7AF1A4D247F9A2700C77D00 /* GemetoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF1A4C247F9A2700C77D00 /* GemetoryView.swift */; };
 		A7AF1A4F247F9A9E00C77D00 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF1A4E247F9A9E00C77D00 /* Grid.swift */; };
+		A7AF1A51247FA0ED00C77D00 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF1A50247FA0ED00C77D00 /* GridLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A73068FC247E2E4D002C2E88 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		A7AF1A4C247F9A2700C77D00 /* GemetoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemetoryView.swift; sourceTree = "<group>"; };
 		A7AF1A4E247F9A9E00C77D00 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		A7AF1A50247FA0ED00C77D00 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				A7AF1A4E247F9A9E00C77D00 /* Grid.swift */,
 				A73068FC247E2E4D002C2E88 /* EmojiMemoryGame.swift */,
 				A73068FA247E2D7E002C2E88 /* MermonyGame.swift */,
+				A7AF1A50247FA0ED00C77D00 /* GridLayout.swift */,
 				A73068EB247E2A4E002C2E88 /* Assets.xcassets */,
 				A73068F0247E2A4E002C2E88 /* LaunchScreen.storyboard */,
 				A73068F3247E2A4F002C2E88 /* Info.plist */,
@@ -167,6 +170,7 @@
 				A73068EA247E2A4D002C2E88 /* EmojiMemoryGameView.swift in Sources */,
 				A7AF1A4F247F9A9E00C77D00 /* Grid.swift in Sources */,
 				A73068FD247E2E4D002C2E88 /* EmojiMemoryGame.swift in Sources */,
+				A7AF1A51247FA0ED00C77D00 /* GridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

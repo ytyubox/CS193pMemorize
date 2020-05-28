@@ -8,20 +8,43 @@
 
 import SwiftUI
 
-struct Grid<Item,ItemView>: View
-    where Item: Identifiable,
+struct Grid<Item,ItemView>: View where
+    Item: Identifiable,
     ItemView: View
 {
-    internal init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView) {
+    
+    func body(for layout: GridLayout) -> some View {
+        ForEach(items)
+        {
+            item in
+            self.body(for: item,in:  layout)
+        }
+    }
+    var body: some View
+    {
+        GeometryReader
+            {
+                geometry in
+                self.body(for:
+                    GridLayout(itemCount: self.items.count,
+                               in: geometry.size)
+                )
+        }
+    }
+    
+    func body(for item:Item, in layout: GridLayout) -> some View {
+        viewForItem(item)
+            .frame(width: layout.itemSize.width, height: layout.itemSize.height)
+    }
+    
+    init(
+        _ items: [Item],
+        viewForItem: @escaping (Item) -> ItemView)
+    {
         self.items = items
         self.viewForItem = viewForItem
     }
     
     var items:[Item]
     var viewForItem: (Item) -> ItemView
-    var body: some View {
-        ForEach(items) {item in
-            self.viewForItem(item)
-        }
-    }
 }
