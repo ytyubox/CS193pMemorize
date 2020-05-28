@@ -54,10 +54,10 @@ but not all themes, should be random), and an appropriate color to use to draw (
 orange would be appropriate for a Halloween theme).
 - [x] Support at least 6 different themes in your game.
 - [x] A new theme should be able to be added to your game with a single line of code.
-- [ ] Add a “New Game” button to your UI which begins a brand new game. This new
+- [x] Add a “New Game” button to your UI which begins a brand new game. This new
 game should have a randomly chosen theme. You can put this button anywhere you
 think looks best in your UI.
-- [ ] Show the theme’s name somewhere in your UI.
+- [x] Show the theme’s name somewhere in your UI.
 - [ ]  Keep score in your game by giving 2 points for every match and penalizing 1 point for
 every previously seen card that is involved in a mismatch.
 - [ ] Display the score in your UI in whatever way you think looks best.

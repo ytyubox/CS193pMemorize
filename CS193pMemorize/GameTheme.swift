@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct GameTheme {
-    internal init(themeColor: Color, cardContents: [String]) {
+    internal init(themeName:String,themeColor: Color, cardContents: [String]) {
         assert(cardContents.count >= 12)
+        self.themeName = themeName
         self.themeColor = themeColor
         self.cardContents = cardContents
     }
-    
+    var themeName:String
     var themeColor:Color
     var cardContents:[String]
 }
@@ -30,11 +31,12 @@ extension GameTheme {
             .sign,
             .food,
             .balls,
-            .transports,
+            .transportation,
         ]
     }
     
     static let halloween = GameTheme(
+        themeName: "halloween",
         themeColor: .orange,
         cardContents: [
             "🦑","👺","🍺","😈","🤡","👽",
@@ -42,18 +44,21 @@ extension GameTheme {
     ])
     
     static let animal = GameTheme(
+        themeName: "animal",
         themeColor: .green,
         cardContents: [
             "🐭","🐮","🐯","🐰","🐲","🐍",
             "🐴","🐑","🐵","🐔","🐕","🐷",
     ])
     static let sign = GameTheme(
+        themeName: "sign",
         themeColor: .blue,
         cardContents: [
             "🆎","🚸","✅","🅿️","🟤","🟪",
             "♣️","♥️","🔱","💮","🧡","💝",
     ])
     static let food = GameTheme(
+        themeName: "food",
         themeColor: .red,
         cardContents: [
             "🍎","🍊","🍋","🍉","🍓","🍑",
@@ -61,12 +66,14 @@ extension GameTheme {
     ])
     
     static let balls = GameTheme(
+        themeName: "balls",
         themeColor: .primary,
         cardContents: [
             "⚽️","🏀","🏈","⚾️","🥎","🏉",
             "🥏","🎱","🪀","🏓","⛳️","🥍",
     ])
-    static let transports = GameTheme(
+    static let transportation = GameTheme(
+        themeName: "transportation",
         themeColor: .yellow,
         cardContents: [
             "🚗","🚕","🚙","🚌","🏎","🚎",

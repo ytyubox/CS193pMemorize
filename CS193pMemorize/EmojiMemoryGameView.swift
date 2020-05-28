@@ -10,10 +10,13 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel:EmojiMemoryGame
-    
+    private let ButtonText = "New game"
+    private let ThemeText:String = "Playing theme:"
     var body: some View {
         VStack {
-            Button("new game",action: didTapNewGame)
+            Button(ButtonText,
+                   action: didTapNewGame)
+            
             HStack {
                 Grid(viewModel.cards) { card in
                     CardView(card: card)
@@ -26,6 +29,9 @@ struct EmojiMemoryGameView: View {
             }
             .padding()
             .foregroundColor(Color.orange)
+            Text(ThemeText)
+            Text(viewModel.gameTheme.themeName.capitalized)
+                .font(.largeTitle)
         }
     }
     private func didTapNewGame() {
