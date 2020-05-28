@@ -13,7 +13,7 @@ struct EmojiMemoryGameView: View {
     
     var body: some View {
         HStack {
-            ForEach(viewModel.cards) { card in
+            Grid(viewModel.cards) { card in
                 CardView(card: card)
                     .aspectRatio(2/3, contentMode: .fit)
                     .onTapGesture {
@@ -25,17 +25,7 @@ struct EmojiMemoryGameView: View {
         .foregroundColor(Color.orange)
     }
 }
-protocol GeometryView: View {
-    associatedtype GeoedView:View
-    func body(size: CGSize) -> GeoedView
-}
-extension GeometryView {
-    var body: some View {
-        GeometryReader { geometry in
-            self.body(size: geometry.size)
-        }
-    }
-}
+
 struct CardView: GeometryView {
     func body(size: CGSize) -> some View {
         ZStack {
