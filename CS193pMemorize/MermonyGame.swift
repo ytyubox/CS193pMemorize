@@ -24,18 +24,10 @@ struct MermoryGame<CardContent> {
     
     mutating func choose(card: Card) {
         print(#file, #line, "card chosen:", card)
-        let chooseIndex = self.index(of: card)
+        let chooseIndex = cards.firstIndex(matching: card)
         self.cards[chooseIndex].isFaceUp.toggle()
     }
     
-    private func index(of card:Card) -> Int {
-        for index in self.cards.indices {
-            if self.cards[index].id == card.id {
-                return index
-            }
-        }
-        return 0 //TODO: bogus!
-    }
     struct Card:Identifiable {
         var id: Int
         var isFaceUp: Bool = true
