@@ -12,18 +12,24 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel:EmojiMemoryGame
     
     var body: some View {
-        HStack {
-            Grid(viewModel.cards) { card in
-                CardView(card: card)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .onTapGesture {
-                        self.viewModel.choose(card: card)
+        VStack {
+            Button("new game",action: didTapNewGame)
+            HStack {
+                Grid(viewModel.cards) { card in
+                    CardView(card: card)
+                        .aspectRatio(2/3, contentMode: .fit)
+                        .onTapGesture {
+                            self.viewModel.choose(card: card)
+                    }
+                    .padding(5)
                 }
-                .padding(5)
             }
+            .padding()
+            .foregroundColor(Color.orange)
         }
-        .padding()
-        .foregroundColor(Color.orange)
+    }
+    private func didTapNewGame() {
+        viewModel.newGame(gameTheme: GameTheme.allThemes.randomElement()!)
     }
 }
 
@@ -54,6 +60,6 @@ struct CardView: GeometryView {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         EmojiMemoryGameView(viewModel: EmojiMemoryGame(gameTheme: .halloween
-))
+        ))
     }
 }

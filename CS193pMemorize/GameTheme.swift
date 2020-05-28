@@ -22,7 +22,7 @@ struct GameTheme {
 
 extension GameTheme {
     
-    static  var allThemes:[GameTheme]
+    static var allThemes:[GameTheme]
     {
         [
             .halloween,

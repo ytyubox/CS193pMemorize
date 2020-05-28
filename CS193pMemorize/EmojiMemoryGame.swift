@@ -40,4 +40,7 @@ class EmojiMemoryGame:ObservableObject {
         model.choose(card: card)
     }
     
+    func newGame(gameTheme:GameTheme) {
+        model = EmojiMemoryGame.makeGame(gameTheme)
+    }
 }
