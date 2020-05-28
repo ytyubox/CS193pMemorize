@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MermoryGame<CardContent> {
+struct MermoryGame<CardContent:Equatable> {
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int)->CardContent) {
         cards = Array<Card>()
         for pairIndex in 0..<numberOfPairsOfCards {
@@ -22,16 +22,35 @@ struct MermoryGame<CardContent> {
     
     var cards: Array<Card>
     
+    var indexOfOneAndOnlyFaceUpCard:Int?
+    
     mutating func choose(card: Card) {
         print(#file, #line, "card chosen:", card)
-        if let chooseIndex = cards.firstIndex(matching: card) {
-            self.cards[chooseIndex].isFaceUp.toggle()
+        if
+            let chooseIndex = cards.firstIndex(matching: card),
+            !cards[chooseIndex].isFaceUp
+            {
+                if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard
+                {
+                    if cards[chooseIndex].content == cards[potentialMatchIndex].content {
+                        cards[chooseIndex].isMatched = true
+                        cards[potentialMatchIndex].isMatched = true
+                    }
+                    indexOfOneAndOnlyFaceUpCard = nil
+                } else {
+                    for index in cards.indices {
+                        cards[index].isFaceUp = false
+                    }
+                    indexOfOneAndOnlyFaceUpCard = chooseIndex
+                }
+            
+            self.cards[chooseIndex].isFaceUp = true
         }
     }
     
     struct Card:Identifiable {
         var id: Int
-        var isFaceUp: Bool = true
+        var isFaceUp: Bool = false
         var isMatched: Bool = false
         var content: CardContent
     }
