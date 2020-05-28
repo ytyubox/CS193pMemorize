@@ -22,29 +22,51 @@ struct MermoryGame<CardContent:Equatable> {
     
     var cards: Array<Card>
     
-    var indexOfOneAndOnlyFaceUpCard:Int?
+    var indexOfOneAndOnlyFaceUpCard:Int? {
+        get
+        {
+            var faceupCardIndices = [Int]()
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    faceupCardIndices.append(index)
+                }
+            }
+            return
+                faceupCardIndices.count == 1
+                    ? faceupCardIndices.first
+                    : nil
+        }
+        set
+        {
+            for index in cards.indices {
+                if index == newValue {
+                    cards[index].isFaceUp = true
+                } else {
+                    cards[index].isFaceUp = false
+                }
+                
+            }
+            dump(cards)
+        }
+    }
     
-    mutating func choose(card: Card) {
-        print(#file, #line, "card chosen:", card)
+    mutating func choose(card: Card)
+    {
         if
             let chooseIndex = cards.firstIndex(matching: card),
-            !cards[chooseIndex].isFaceUp
+            !cards[chooseIndex].isFaceUp,
+            !cards[chooseIndex].isMatched
+        {
+            if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard
             {
-                if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard
-                {
-                    if cards[chooseIndex].content == cards[potentialMatchIndex].content {
-                        cards[chooseIndex].isMatched = true
-                        cards[potentialMatchIndex].isMatched = true
-                    }
-                    indexOfOneAndOnlyFaceUpCard = nil
-                } else {
-                    for index in cards.indices {
-                        cards[index].isFaceUp = false
-                    }
-                    indexOfOneAndOnlyFaceUpCard = chooseIndex
+                if cards[chooseIndex].content == cards[potentialMatchIndex].content {
+                    cards[chooseIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
                 }
-            
-            self.cards[chooseIndex].isFaceUp = true
+                cards[chooseIndex].isFaceUp = true
+            } else {
+                indexOfOneAndOnlyFaceUpCard = chooseIndex
+            }
         }
     }
     
