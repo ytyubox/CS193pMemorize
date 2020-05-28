@@ -45,10 +45,10 @@ a dozen). In other words, don’t always use the same five emoji in every game.
 - no assignment
 
 ## Lecture 4
-- [ ]  Get the Memorize game working as demonstrated in lectures 1 through 4. Type in all
+- [x]  Get the Memorize game working as demonstrated in lectures 1 through 4. Type in all
 the code. Do not copy/paste from anywhere.
-- [ ] Your game should still shuffle the cards.
--[ ] Architect the concept of a “theme” into your game. A theme consists of a name for
+- [x] Your game should still shuffle the cards.
+- [ ] Architect the concept of a “theme” into your game. A theme consists of a name for
 the theme, a set of emoji to use, a number of cards to show (which, for at least one,
 but not all themes, should be random), and an appropriate color to use to draw (e.g.
 orange would be appropriate for a Halloween theme).
