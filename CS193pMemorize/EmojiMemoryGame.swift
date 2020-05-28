@@ -25,10 +25,11 @@ class EmojiMemoryGame:ObservableObject {
         }
     }
     @Published private var model: Game
-    
     // MARK: - Access to the Model
     
     var gameTheme:GameTheme
+    
+    var score:Int {model.score}
     
     var cards: Array<Game.Card> {
         model.cards

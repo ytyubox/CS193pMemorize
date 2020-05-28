@@ -22,6 +22,8 @@ struct MermoryGame<CardContent:Equatable> {
     
     var cards: Array<Card>
     
+    var score:Int = 0
+    
     var indexOfOneAndOnlyFaceUpCard:Int? {
         get
         {
@@ -50,10 +52,14 @@ struct MermoryGame<CardContent:Equatable> {
                 if cards[chooseIndex].content == cards[potentialMatchIndex].content {
                     cards[chooseIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
+                    score += 2
                 }
                 cards[chooseIndex].isFaceUp = true
             } else {
+                score = indexOfOneAndOnlyFaceUpCard == nil ? score : score - 1
+                
                 indexOfOneAndOnlyFaceUpCard = chooseIndex
+                
             }
         }
     }
