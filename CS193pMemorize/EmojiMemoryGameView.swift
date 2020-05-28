@@ -23,24 +23,42 @@ struct EmojiMemoryGameView: View {
         }
         .padding()
         .foregroundColor(Color.orange)
-        .font( viewModel.cards.count == 10 ? .title : .largeTitle)
     }
 }
-
-struct CardView: View {
-    var card:MermoryGame<String>.Card
+protocol GeometryView: View {
+    associatedtype GeoedView:View
+    func body(size: CGSize) -> GeoedView
+}
+extension GeometryView {
     var body: some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3)
-                Text(card.content)
-            }else {
-                RoundedRectangle(cornerRadius: 10).fill(Color.orange)
-            }
+        GeometryReader { geometry in
+            self.body(size: geometry.size)
         }
     }
 }
+struct CardView: GeometryView {
+    func body(size: CGSize) -> some View {
+        ZStack {
+            if card.isFaceUp {
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
+                Text(card.content)
+            }else {
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+            }
+        }
+        .font(font(size: size))
+    }
+    
+    private let cornerRadius:CGFloat = 10
+    private let edgeWidth:CGFloat = 3
+    private func font(size: CGSize) -> Font {
+        Font.system(size: min(size.width, size.height) * 0.75)
+    }
+    
+    var card:MermoryGame<String>.Card
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
