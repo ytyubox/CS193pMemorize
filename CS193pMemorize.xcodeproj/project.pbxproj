@@ -57,7 +57,6 @@
 		A73068D9247E2A4D002C2E88 = {
 			isa = PBXGroup;
 			children = (
-				A7660933247FBFEC001556D7 /* Array+Only.swift */,
 				A73068F9247E2A8B002C2E88 /* README.md */,
 				A73068E4247E2A4D002C2E88 /* CS193pMemorize */,
 				A73068E3247E2A4D002C2E88 /* Products */,
@@ -80,11 +79,12 @@
 				A73068E9247E2A4D002C2E88 /* EmojiMemoryGameView.swift */,
 				A7AF1A4C247F9A2700C77D00 /* GemetoryView.swift */,
 				A7AF1A4E247F9A9E00C77D00 /* Grid.swift */,
-				A7AF1A52247FA47B00C77D00 /* Array+Identifiable.swift */,
-				A73068FC247E2E4D002C2E88 /* EmojiMemoryGame.swift */,
-				A7660935247FDE57001556D7 /* GameTheme.swift */,
-				A73068FA247E2D7E002C2E88 /* MermonyGame.swift */,
 				A7AF1A50247FA0ED00C77D00 /* GridLayout.swift */,
+				A73068FC247E2E4D002C2E88 /* EmojiMemoryGame.swift */,
+				A73068FA247E2D7E002C2E88 /* MermonyGame.swift */,
+				A7660935247FDE57001556D7 /* GameTheme.swift */,
+				A7AF1A52247FA47B00C77D00 /* Array+Identifiable.swift */,
+				A7660933247FBFEC001556D7 /* Array+Only.swift */,
 				A73068EB247E2A4E002C2E88 /* Assets.xcassets */,
 				A73068F0247E2A4E002C2E88 /* LaunchScreen.storyboard */,
 				A73068F3247E2A4F002C2E88 /* Info.plist */,

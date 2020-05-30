@@ -58,10 +58,10 @@ orange would be appropriate for a Halloween theme).
 game should have a randomly chosen theme. You can put this button anywhere you
 think looks best in your UI.
 - [x] Show the theme’s name somewhere in your UI.
-- [ ]  Keep score in your game by giving 2 points for every match and penalizing 1 point for
+- [x]  Keep score in your game by giving 2 points for every match and penalizing 1 point for
 every previously seen card that is involved in a mismatch.
-- [ ] Display the score in your UI in whatever way you think looks best.
-- [ ] Your UI should work in portrait or landscape on any iOS device. The cards can have
+- [x] Display the score in your UI in whatever way you think looks best.
+- [x] Your UI should work in portrait or landscape on any iOS device. The cards can have
 any aspect ratio you’d like. This probably will not require any work on your part
 (that’s part of the power of SwiftUI), but be sure to continue to experiment with
 running on different simulators in Xcode to be sure. 

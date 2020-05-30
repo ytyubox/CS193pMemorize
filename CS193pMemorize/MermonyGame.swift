@@ -42,26 +42,30 @@ struct MermoryGame<CardContent:Equatable> {
     
     mutating func choose(card: Card)
     {
-        if
+        guard
             let chooseIndex = cards.firstIndex(matching: card),
             !cards[chooseIndex].isFaceUp,
             !cards[chooseIndex].isMatched
-        {
-            if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard
-            {
-                if cards[chooseIndex].content == cards[potentialMatchIndex].content {
-                    cards[chooseIndex].isMatched = true
-                    cards[potentialMatchIndex].isMatched = true
-                    score += 2
-                }
-                cards[chooseIndex].isFaceUp = true
-            } else {
-                score = indexOfOneAndOnlyFaceUpCard == nil ? score : score - 1
-                
-                indexOfOneAndOnlyFaceUpCard = chooseIndex
-                
-            }
+            else {fatalError() }
+        if
+            let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard  {
+            alreadyChooseOneCard(chooseIndex: chooseIndex,
+                                 potentialMatchIndex: potentialMatchIndex)
+            return
         }
+        indexOfOneAndOnlyFaceUpCard = chooseIndex
+    }
+    
+    private mutating func alreadyChooseOneCard(chooseIndex:Int, potentialMatchIndex:Int) {
+        if cards[chooseIndex].content == cards[potentialMatchIndex].content {
+            cards[chooseIndex].isMatched = true
+            cards[potentialMatchIndex].isMatched = true
+            score += 2
+        }
+        else {
+            score -= 1
+        }
+        cards[chooseIndex].isFaceUp = true
     }
     
     struct Card:Identifiable {

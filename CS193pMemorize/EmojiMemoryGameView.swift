@@ -12,16 +12,15 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel:EmojiMemoryGame
     private let ButtonText = "New game"
     private let ThemeText:String = "Playing theme:"
-    private let score:String = "score: "
+    private let scoreText:String = "score: "
     var body: some View {
         VStack {
             Button(ButtonText,
                    action: didTapNewGame)
-            Text(score+"\(viewModel.score)")
+            Text(scoreText+"\(viewModel.score)")
             HStack {
                 Grid(viewModel.cards) { card in
                     CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
                         .onTapGesture {
                             self.viewModel.choose(card: card)
                     }
