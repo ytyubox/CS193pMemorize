@@ -69,7 +69,7 @@ running on different simulators in Xcode to be sure.
 Extra Credit
  - [x] Support a gradient as the “color” for a theme. Hint: fill() can take a gradient as its
 argument rather than a color.
-- [ ] Modify the scoring system to give more points for choosing cards more quickly. For
+- [x] Modify the scoring system to give more points for choosing cards more quickly. For
 example, maybe you get max(10 - (number of seconds since last card was chosen), 1) x
 (the number of points you would have otherwise earned or been penalized with).
 (This is just an example, be creative!). You will definitely want to familiarize yourself

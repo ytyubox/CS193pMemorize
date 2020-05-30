@@ -24,6 +24,8 @@ struct MermoryGame<CardContent:Equatable> {
     
     var score:Int = 0
     
+    private var lastChooseDate:Date?
+    
     var indexOfOneAndOnlyFaceUpCard:Int? {
         get
         {
@@ -47,25 +49,30 @@ struct MermoryGame<CardContent:Equatable> {
             !cards[chooseIndex].isFaceUp,
             !cards[chooseIndex].isMatched
             else {return}
-        if
-            let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard  {
+        if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard  {
             alreadyChooseOneCard(chooseIndex: chooseIndex,
                                  potentialMatchIndex: potentialMatchIndex)
             return
         }
         indexOfOneAndOnlyFaceUpCard = chooseIndex
+        lastChooseDate = Date()
     }
     
     private mutating func alreadyChooseOneCard(chooseIndex:Int, potentialMatchIndex:Int) {
         if cards[chooseIndex].content == cards[potentialMatchIndex].content {
             cards[chooseIndex].isMatched = true
             cards[potentialMatchIndex].isMatched = true
-            score += 2
+            score += calculateScore(date: lastChooseDate!)
         }
         else {
             score -= 1
         }
         cards[chooseIndex].isFaceUp = true
+    }
+    
+    private func calculateScore(date:Date) -> Int {
+        let value = date.distance(to: Date())
+        return max(Int(10 - value) / 2, 2)
     }
     
     struct Card:Identifiable {
