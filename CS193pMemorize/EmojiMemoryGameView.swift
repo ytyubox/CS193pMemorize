@@ -46,9 +46,12 @@ struct CardView: GeometryView {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
+                    .fill(linearGradient)
                 Text(card.content)
             }else if !card.isMatched{
-                RoundedRectangle(cornerRadius: cornerRadius).fill(color)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(
+                    linearGradient
+                )
             }
         }
         .font(font(size: size))
@@ -59,9 +62,18 @@ struct CardView: GeometryView {
     private func font(size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * 0.75)
     }
+    private var linearGradient:LinearGradient {
+        LinearGradient(gradient: Gradient(colors: [
+            color.opacity(0.5),
+            color,
+        ]),
+                       startPoint: .top,
+                       endPoint: .bottom)
+    }
     
     var card:MermoryGame<String>.Card
     let color: Color
+    
 }
 
 
