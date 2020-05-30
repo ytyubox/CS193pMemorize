@@ -73,7 +73,6 @@ struct CardView: GeometryView {
     
     var card:MermoryGame<String>.Card
     let color: Color
-    
 }
 
 

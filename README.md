@@ -67,7 +67,7 @@ any aspect ratio you’d like. This probably will not require any work on your p
 running on different simulators in Xcode to be sure. 
 
 Extra Credit
- - [ ] Support a gradient as the “color” for a theme. Hint: fill() can take a gradient as its
+ - [x] Support a gradient as the “color” for a theme. Hint: fill() can take a gradient as its
 argument rather than a color.
 - [ ] Modify the scoring system to give more points for choosing cards more quickly. For
 example, maybe you get max(10 - (number of seconds since last card was chosen), 1) x
