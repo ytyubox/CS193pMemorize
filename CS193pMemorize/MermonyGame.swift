@@ -46,7 +46,7 @@ struct MermoryGame<CardContent:Equatable> {
             let chooseIndex = cards.firstIndex(matching: card),
             !cards[chooseIndex].isFaceUp,
             !cards[chooseIndex].isMatched
-            else {fatalError() }
+            else {return}
         if
             let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard  {
             alreadyChooseOneCard(chooseIndex: chooseIndex,

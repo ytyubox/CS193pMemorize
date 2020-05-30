@@ -20,7 +20,8 @@ struct EmojiMemoryGameView: View {
             Text(scoreText+"\(viewModel.score)")
             HStack {
                 Grid(viewModel.cards) { card in
-                    CardView(card: card)
+                    CardView(card: card,
+                             color: self.viewModel.gameTheme.themeColor)
                         .onTapGesture {
                             self.viewModel.choose(card: card)
                     }
@@ -28,7 +29,7 @@ struct EmojiMemoryGameView: View {
                 }
             }
             .padding()
-            .foregroundColor(Color.orange)
+            .foregroundColor(viewModel.gameTheme.themeColor)
             Text(ThemeText)
             Text(viewModel.gameTheme.themeName.capitalized)
                 .font(.largeTitle)
@@ -47,7 +48,7 @@ struct CardView: GeometryView {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
                 Text(card.content)
             }else if !card.isMatched{
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(color)
             }
         }
         .font(font(size: size))
@@ -60,6 +61,7 @@ struct CardView: GeometryView {
     }
     
     var card:MermoryGame<String>.Card
+    let color: Color
 }
 
 
