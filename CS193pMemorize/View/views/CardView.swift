@@ -28,6 +28,10 @@ struct CardView: GeometryView {
         RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
         RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
             .fill(linearGradient)
+        Circle()
+            .padding(circlePaddingLength)
+            .opacity(0.4)
+        
         Text(card.content)
     }
     @ViewBuilder
@@ -39,8 +43,9 @@ struct CardView: GeometryView {
     
     private let cornerRadius:CGFloat = 10
     private let edgeWidth:CGFloat = 3
+    private let circlePaddingLength:CGFloat = 5
     private func font(size: CGSize) -> Font {
-        Font.system(size: min(size.width, size.height) * 0.75)
+        Font.system(size: min(size.width, size.height) * 0.65)
     }
     private var linearGradient:LinearGradient {
         LinearGradient(gradient: Gradient(colors: [
@@ -53,4 +58,10 @@ struct CardView: GeometryView {
     
    private var card:MermoryGame<String>.Card
    private let color: Color
+}
+
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardView(card: .init(id: 1,isFaceUp: true, content: "🦑"), color: .orange)
+    }
 }
