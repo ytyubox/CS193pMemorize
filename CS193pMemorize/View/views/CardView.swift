@@ -8,20 +8,33 @@
 
 import SwiftUI
 struct CardView: GeometryView {
+    internal init(card: MermoryGame<String>.Card, color: Color) {
+        self.card = card
+        self.color = color
+    }
+    
     func body(size: CGSize) -> some View {
         ZStack {
             if card.isFaceUp {
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
-                    .fill(linearGradient)
-                Text(card.content)
+                front()
             }else if !card.isMatched{
-                RoundedRectangle(cornerRadius: cornerRadius).fill(
-                    linearGradient
-                )
+                back()
             }
         }
         .font(font(size: size))
+    }
+    @ViewBuilder
+    private func front() -> some View {
+        RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+        RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
+            .fill(linearGradient)
+        Text(card.content)
+    }
+    @ViewBuilder
+    private func back() -> some View {
+        RoundedRectangle(cornerRadius: cornerRadius).fill(
+                         linearGradient
+                     )
     }
     
     private let cornerRadius:CGFloat = 10
@@ -38,6 +51,6 @@ struct CardView: GeometryView {
                        endPoint: .bottom)
     }
     
-    var card:MermoryGame<String>.Card
-    let color: Color
+   private var card:MermoryGame<String>.Card
+   private let color: Color
 }
