@@ -15,45 +15,20 @@ struct CardView: GeometryView {
     
     func body(size: CGSize) -> some View {
         ZStack {
-            if card.isFaceUp {
-                front()
-            }else if !card.isMatched{
-                back()
-            }
+          Pie(startAngle: .degrees(0-90), endAngle: .init(degrees: 90-90),clockwise: true)
+                   .padding(circlePaddingLength)
+                   .opacity(0.4)
+            Text(card.content)
+                .font(self.font(size: size))
         }
-        .font(font(size: size))
-    }
-    @ViewBuilder
-    private func front() -> some View {
-        RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-        RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
-            .fill(linearGradient)
-        Pie(startAngle: .degrees(0-90), endAngle: .init(degrees: 333-90),clockwise: true)
-            .padding(circlePaddingLength)
-            .opacity(0.4)
-        
-        Text(card.content)
-    }
-    @ViewBuilder
-    private func back() -> some View {
-        RoundedRectangle(cornerRadius: cornerRadius).fill(
-                         linearGradient
-                     )
+        .modifier(Cardify(isFaceUp: card.isFaceUp, color: self.color))
     }
     
-    private let cornerRadius:CGFloat = 10
-    private let edgeWidth:CGFloat = 3
+  
+ 
     private let circlePaddingLength:CGFloat = 5
     private func font(size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * 0.65)
-    }
-    private var linearGradient:LinearGradient {
-        LinearGradient(gradient: Gradient(colors: [
-            color.opacity(0.5),
-            color,
-        ]),
-                       startPoint: .top,
-                       endPoint: .bottom)
     }
     
    private var card:MermoryGame<String>.Card
