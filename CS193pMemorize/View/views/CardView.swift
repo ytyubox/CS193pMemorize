@@ -28,7 +28,7 @@ struct CardView: GeometryView {
         RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
         RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeWidth)
             .fill(linearGradient)
-        Circle()
+        Pie(startAngle: .zero, endAngle: .init(degrees: 270))
             .padding(circlePaddingLength)
             .opacity(0.4)
         
