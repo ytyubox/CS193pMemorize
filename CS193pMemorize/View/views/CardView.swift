@@ -12,27 +12,34 @@ struct CardView: GeometryView {
         self.card = card
         self.color = color
     }
-    
+    @ViewBuilder
     func body(size: CGSize) -> some View {
-        ZStack {
-          Pie(startAngle: .degrees(0-90), endAngle: .init(degrees: 90-90),clockwise: true)
-                   .padding(circlePaddingLength)
-                   .opacity(0.4)
-            Text(card.content)
-                .font(self.font(size: size))
+        if card.isFaceUp || !card.isMatched {
+            ZStack {
+                Pie(
+                    startAngle: .degrees(0-90),
+                    endAngle: .degrees(90-90),
+                    clockwise: true
+                )
+                    .padding(circlePaddingLength)
+                    .opacity(0.4)
+                Text(card.content)
+                    .font(self.font(size: size))
+            }
+            .cardify(isFaceUp: card.isFaceUp,
+                     color: self.color)
         }
-        .modifier(Cardify(isFaceUp: card.isFaceUp, color: self.color))
     }
     
-  
- 
+    
+    
     private let circlePaddingLength:CGFloat = 5
     private func font(size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * 0.65)
     }
     
-   private var card:MermoryGame<String>.Card
-   private let color: Color
+    private var card:MermoryGame<String>.Card
+    private let color: Color
 }
 
 struct CardView_Previews: PreviewProvider {

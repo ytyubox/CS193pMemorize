@@ -24,6 +24,7 @@
 		A7FB2E5A248786DA009A25CB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB2E59248786DA009A25CB /* CardView.swift */; };
 		A7FB2E612488A4F0009A25CB /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB2E602488A4F0009A25CB /* Pie.swift */; };
 		A7FB2E632488BD9F009A25CB /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB2E622488BD9F009A25CB /* Cardify.swift */; };
+		A7FB2E652488C048009A25CB /* View+Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FB2E642488C048009A25CB /* View+Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A7FB2E59248786DA009A25CB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A7FB2E602488A4F0009A25CB /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pie.swift; path = CS193pMemorize/View/views/Pie.swift; sourceTree = SOURCE_ROOT; };
 		A7FB2E622488BD9F009A25CB /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Cardify.swift; path = CS193pMemorize/View/views/Cardify.swift; sourceTree = SOURCE_ROOT; };
+		A7FB2E642488C048009A25CB /* View+Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Cardify.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				A7AF1A52247FA47B00C77D00 /* Array+Identifiable.swift */,
 				A7660933247FBFEC001556D7 /* Array+Only.swift */,
+				A7FB2E642488C048009A25CB /* View+Cardify.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				A73068E8247E2A4D002C2E88 /* SceneDelegate.swift in Sources */,
 				A73068EA247E2A4D002C2E88 /* EmojiMemoryGameView.swift in Sources */,
 				A7AF1A53247FA47B00C77D00 /* Array+Identifiable.swift in Sources */,
+				A7FB2E652488C048009A25CB /* View+Cardify.swift in Sources */,
 				A7FB2E632488BD9F009A25CB /* Cardify.swift in Sources */,
 				A7AF1A4F247F9A9E00C77D00 /* Grid.swift in Sources */,
 				A73068FD247E2E4D002C2E88 /* EmojiMemoryGame.swift in Sources */,
